@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		92DA4FEA2DA7C5BA006F8542 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 92DA4FE92DA7C5BA006F8542 /* FirebaseAuth */; };
+		92DA4FEC2DA7C5BA006F8542 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 92DA4FEB2DA7C5BA006F8542 /* FirebaseCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		92DA4FAE2DA7C0DC006F8542 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -73,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92DA4FEC2DA7C5BA006F8542 /* FirebaseCore in Frameworks */,
+				92DA4FEA2DA7C5BA006F8542 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +140,8 @@
 			);
 			name = "Sperm Test Results App";
 			packageProductDependencies = (
+				92DA4FE92DA7C5BA006F8542 /* FirebaseAuth */,
+				92DA4FEB2DA7C5BA006F8542 /* FirebaseCore */,
 			);
 			productName = "Sperm Test Results App";
 			productReference = 92DA4FA02DA7C0D9006F8542 /* Sperm Test Results App.app */;
@@ -216,6 +225,9 @@
 			);
 			mainGroup = 92DA4F972DA7C0D9006F8542;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				92DA4FE82DA7C5BA006F8542 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 92DA4FA12DA7C0D9006F8542 /* Products */;
 			projectDirPath = "";
@@ -579,6 +591,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		92DA4FE82DA7C5BA006F8542 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92DA4FE92DA7C5BA006F8542 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92DA4FE82DA7C5BA006F8542 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		92DA4FEB2DA7C5BA006F8542 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92DA4FE82DA7C5BA006F8542 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 92DA4F982DA7C0D9006F8542 /* Project object */;
 }
