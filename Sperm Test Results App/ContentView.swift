@@ -10,26 +10,44 @@ import SwiftUI
 struct ContentView: View {
     @State private var email = ""
     @State private var password = ""
+    @State private var isLoggedIn = false
     private let authService = AuthService()
 
     var body: some View {
         VStack {
-            TextField("Email", text: $email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            SecureField("Password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            Button("Login") {
-                authService.login(email: email, password: password) { error in
-                    if let error = error {
-                        print("Login failed: \(error.localizedDescription)")
-                    } else {
-                        print("Login successful!")
+            if isLoggedIn {
+                Text("Welcome!")
+                Button("Logout") {
+                    do {
+                        try authService.logout()  // Fixed: added '.' and proper try syntax
+                        isLoggedIn = false
+                        email = ""
+                        password = ""
+                        print("Logout successful!")
+                    } catch {
+                        print("Logout failed: \(error.localizedDescription)")
                     }
                 }
+                .padding()
+            } else {
+                TextField("Email", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                Button("Login") {
+                    authService.login(email: email, password: password) { error in
+                        if let error = error {
+                            print("Login failed: \(error.localizedDescription)")
+                        } else {
+                            print("Login successful!")
+                            isLoggedIn = true
+                        }
+                    }
+                }
+                .padding()
             }
-            .padding()
         }
     }
 }
@@ -37,4 +55,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
