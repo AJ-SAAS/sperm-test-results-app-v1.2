@@ -6,6 +6,8 @@ struct SignUpView: View {
     @State private var showError = false
     @State private var errorMessage = ""
     private let authService = AuthService()
+    @Binding var isLoggedIn: Bool
+    @Binding var showSignUp: Bool
 
     var body: some View {
         VStack {
@@ -26,6 +28,12 @@ struct SignUpView: View {
                         print("Sign-up failed: \(errorMessage)")
                     } else {
                         print("Sign-up successful!")
+                        authService.login(email: email, password: password) { loginError in
+                            if loginError == nil {
+                                isLoggedIn = true
+                                showSignUp = false  // Dismiss sheet
+                            }
+                        }
                     }
                 }
             }
@@ -38,5 +46,5 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    SignUpView(isLoggedIn: .constant(false), showSignUp: .constant(false))
 }

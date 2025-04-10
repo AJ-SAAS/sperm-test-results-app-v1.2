@@ -13,7 +13,6 @@ struct ContentView: View {
     @State private var showError = false
     @State private var errorMessage = ""
     @State private var showSignUp = false
-    private let authService = AuthService()
 
     var body: some View {
         NavigationView {
@@ -22,7 +21,7 @@ struct ContentView: View {
                     Text("Welcome!")
                     Button("Logout") {
                         do {
-                            try authService.logout()
+                            try AuthService().logout()
                             isLoggedIn = false
                             email = ""
                             password = ""
@@ -40,7 +39,7 @@ struct ContentView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
                     Button("Login") {
-                        authService.login(email: email, password: password) { error in
+                        AuthService().login(email: email, password: password) { error in
                             if let error = error {
                                 errorMessage = error.localizedDescription
                                 showError = true
@@ -63,7 +62,7 @@ struct ContentView: View {
                 Alert(title: Text("Login Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }
             .sheet(isPresented: $showSignUp) {
-                SignUpView()
+                SignUpView(isLoggedIn: $isLoggedIn, showSignUp: $showSignUp)
             }
         }
     }
