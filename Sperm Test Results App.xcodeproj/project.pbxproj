@@ -29,9 +29,30 @@
 		92DA4FB72DA7C0DC006F8542 /* Sperm Test Results AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sperm Test Results AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		92DA4FE52DA7C47B006F8542 /* Exceptions for "Sperm Test Results App" folder in "Sperm Test Results App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Components/.placeholder,
+				Components/Cards/.placeholder,
+				Components/Forms/.placeholder,
+				Models/.placeholder,
+				Screens/.placeholder,
+				Screens/Auth/.placeholder,
+				Screens/Main/.placeholder,
+				Services/.placeholder,
+				Utilities/.placeholder,
+			);
+			target = 92DA4F9F2DA7C0D9006F8542 /* Sperm Test Results App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		92DA4FA22DA7C0D9006F8542 /* Sperm Test Results App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				92DA4FE52DA7C47B006F8542 /* Exceptions for "Sperm Test Results App" folder in "Sperm Test Results App" target */,
+			);
 			path = "Sperm Test Results App";
 			sourceTree = "<group>";
 		};
