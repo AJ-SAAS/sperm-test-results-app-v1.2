@@ -45,7 +45,6 @@
 				Screens/.placeholder,
 				Screens/Auth/.placeholder,
 				Screens/Main/.placeholder,
-				Services/.placeholder,
 				Utilities/.placeholder,
 			);
 			target = 92DA4F9F2DA7C0D9006F8542 /* Sperm Test Results App */;
