@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var email = ""
+    @State private var password = ""
+    private let authService = AuthService()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TextField("Email", text: $email)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            SecureField("Password", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            Button("Login") {
+                authService.login(email: email, password: password) { error in
+                    if let error = error {
+                        print("Login failed: \(error.localizedDescription)")
+                    } else {
+                        print("Login successful!")
+                    }
+                }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+
