@@ -17,8 +17,13 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            Text("Sperm Test Results")
+                .font(.largeTitle)
+                .foregroundColor(.blue)
+                .padding()
             if isLoggedIn {
                 Text("Welcome!")
+                    .font(.title2)
                 Button("Logout") {
                     do {
                         try authService.logout()
@@ -30,6 +35,8 @@ struct ContentView: View {
                         print("Logout failed: \(error.localizedDescription)")
                     }
                 }
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
                 .padding()
             } else {
                 TextField("Email", text: $email)
@@ -50,9 +57,13 @@ struct ContentView: View {
                         }
                     }
                 }
+                .buttonStyle(.borderedProminent)
+                .tint(.blue)
                 .padding()
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.systemGray6))
         .alert(isPresented: $showError) {
             Alert(title: Text("Login Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
         }
